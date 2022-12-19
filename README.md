@@ -80,6 +80,10 @@ npm test
 
 ## Documentaion
 - There's a postman collection within the repo `docs/TopLegal.postman_collection.json` than can help you navigate the endpoints.
+- The only endpoints that requires authentication are:
+  - `GET /me`
+  - `GET /users/`
+  - `GET /users/{id}`
 
 ## Areas of Improvement <a name="Improvement"></a>
-- Adding Authentication and Authorization
+- To make a general configuration that works both locally and on the cloud.

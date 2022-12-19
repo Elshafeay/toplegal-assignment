@@ -23,11 +23,21 @@ export class CommonRepository {
     //   }
     // }
 
-    const TableName = 'contracts';
-    const { Items } = await this.documentClient.scan({ TableName }).promise();
-    for(let item of Items || []){
+    const tablesNames = ['contracts', 'users'];
+    const { Items: contracts } = await this.documentClient
+      .scan({ TableName: tablesNames[0] })
+      .promise();
+    for(let item of contracts || []){
       await this.documentClient
-        .delete({ TableName, Key: { contractID: item.contractID } }).promise();
+        .delete({ TableName: tablesNames[0], Key: { contractID: item.contractID } }).promise();
+    }
+
+    const { Items: users } = await this.documentClient
+      .scan({ TableName: tablesNames[1] })
+      .promise();
+    for(let item of users || []){
+      await this.documentClient
+        .delete({ TableName: tablesNames[1], Key: { userID: item.userID } }).promise();
     }
   }
 }

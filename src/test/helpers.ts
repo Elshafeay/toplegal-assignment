@@ -14,7 +14,7 @@ const signup = async () => {
       firstname: 'test',
       lastname: 'test',
       email: `test-${randomId}@test.com`,
-      password: '123456',
+      password: '12345678',
     });
   const token = response.body.data.token;
   return 'Bearer ' + token;

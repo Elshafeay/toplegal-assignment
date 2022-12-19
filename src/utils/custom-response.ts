@@ -12,10 +12,10 @@ class CustomResponse {
   //   res.status(status).json(formattedResponse);
   // }
 
-  // sendWithError(res:Response, message:string, status=400){
-  //   const formattedResponse = { status, message };
-  //   res.status(status).json(formattedResponse);
-  // }
+  sendWithError(res:Response, message:string, status=400){
+    const formattedResponse = { status, message };
+    res.status(status).json(formattedResponse);
+  }
 }
 
 export default new CustomResponse();

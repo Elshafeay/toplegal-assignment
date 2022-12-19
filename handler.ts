@@ -9,11 +9,13 @@ import { NotFoundError } from './src/errors/not-found-error';
 import { errorHandler } from './src/middlewares/error-handler';
 import routing from './src/components/routes';
 import morganMiddleware from './src/middlewares/morgan';
+import { currentUser } from './src/middlewares/current-user';
 
 const app = express();
 
 app.use(express.json());
 app.use(morganMiddleware);
+app.use(currentUser);
 
 routing.api(app);
 
