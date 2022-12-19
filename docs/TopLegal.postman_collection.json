@@ -1,0 +1,79 @@
+{
+	"info": {
+		"_postman_id": "6ce60748-8002-4e2d-aca3-66f37ebb8b15",
+		"name": "TopLegal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7850551"
+	},
+	"item": [
+		{
+			"name": "Create Contract",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userID\": \"3d2da6b3-bc59-4cb1-94c4-f2038e452a77\",\r\n    \"contractName\": \"test1\",\r\n    \"templateID\": \"2c1cc4a2-bc59-4cb1-94c4-f2038e452a77\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/createContract",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"createContract"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Contract IDs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/getContractIDs",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"getContractIDs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Contract",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/getContract?id=db2c5c50-4fcd-4298-a2a4-03c464a58ae2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"getContract"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "db2c5c50-4fcd-4298-a2a4-03c464a58ae2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

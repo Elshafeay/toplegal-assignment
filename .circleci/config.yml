@@ -1,0 +1,27 @@
+orbs:
+  node: circleci/node@5.0.0
+  codecov: codecov/codecov@3.2.4
+version: 2.1
+
+jobs:
+  lint-and-test:
+    docker:
+      - image: cimg/node:14.21
+      - image: amazon/dynamodb-local
+    steps:
+      - checkout
+      - run:
+          name: Installing the project dependencies
+          command: npm install
+      - run:
+          name: Testing the project linting
+          command: npm run lint
+      - run:
+          name: Running the project tests
+          command: npm run test:ci
+      - codecov/upload
+
+workflows:
+  workflow:                    
+    jobs:
+      - lint-and-test

@@ -1,0 +1,43 @@
+service: toplegal-assignment
+	
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: eu-west-1
+  profile: default
+  memorySize: 256
+  stage: test
+  httpApi:
+    cors: true
+
+plugins:
+  - serverless-dynamodb-local
+
+custom:
+  dynamodb:
+    stages:
+      - test
+    start:
+      docker: true
+      port: 8800
+      inMemory: true
+      migrate: true
+      seed: true
+      convertEmptyValues: true    	
+      noStart: true
+
+resources:
+  Resources:
+    contractsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: contracts
+        AttributeDefinitions:
+          - AttributeName: contractID
+            AttributeType: S
+        KeySchema:
+          - AttributeName: contractID
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1

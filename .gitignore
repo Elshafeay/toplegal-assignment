@@ -1,0 +1,8 @@
+node_modules
+dist
+.env
+logs
+package-lock.json
+.esbuild
+dynamodb-data
+coverage
